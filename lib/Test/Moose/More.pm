@@ -954,7 +954,7 @@ sub _class_attribute_options_ok {
 
     $check->($_) for grep { any(@check_opts) eq $_ } sort keys %opts;
 
-    do { $tb->skip("cannot test '$_' options yet", 1); delete $opts{$_} }
+    do { $tb->skip("cannot test '$_' options yet"); delete $opts{$_} }
         for grep { exists $opts{$_} } @unhandled_opts;
 
     if (exists $opts{init_arg}) {
